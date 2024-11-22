@@ -20,3 +20,4 @@ public async Task<IActionResult> SubmitClaim([FromBody] Claim claim)
 
     return Ok(new { Message = "Claim submitted successfully!" });
 }
+ 
