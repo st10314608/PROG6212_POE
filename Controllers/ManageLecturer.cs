@@ -10,6 +10,6 @@ public async Task<IActionResult> ManageLecturer(Lecturer model)
         return View(model);
     }
 
-    // Save logic
+    // Save logic 
     
 }
