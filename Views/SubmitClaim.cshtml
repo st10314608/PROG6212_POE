@@ -1,0 +1,37 @@
+﻿@model Claim
+
+<h2>Submit a Claim</h2>
+
+<form asp-action="SubmitClaim" method="post">
+    <div>
+        <label>Hours Worked:</label>
+        <input type="number" id="hoursWorked" name="HoursWorked" min="1" required />
+    </div>
+    <div>
+        <label>Hourly Rate:</label>
+        <input type="number" id="hourlyRate" name="HourlyRate" min="0" step="0.01" required />
+    </div>
+    <div>
+        <label>Total Payment:</label>
+        <input type="text" id="totalPayment" name="TotalPayment" readonly />
+    </div>
+    <button type="button" id="calculatePayment">Calculate Payment</button>
+    <button type="submit">Submit Claim</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#calculatePayment").click(function () {
+            const hoursWorked = parseFloat($("#hoursWorked").val());
+            const hourlyRate = parseFloat($("#hourlyRate").val());
+
+            if (!isNaN(hoursWorked) && !isNaN(hourlyRate)) {
+                const totalPayment = hoursWorked * hourlyRate;
+                $("#totalPayment").val(totalPayment.toFixed(2));
+            } else {
+                alert("Please enter valid values.");
+            }
+        });
+    });
+</script>

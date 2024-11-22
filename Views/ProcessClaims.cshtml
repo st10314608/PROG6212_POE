@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Claim>
+
+<h2>Process Claims</h2>
+
+<form asp-action="BulkProcessClaims" method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>Claim ID</th>
+                <th>Lecturer</th>
+                <th>Total Payment</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model)
+            {
+                <tr>
+                    <td>@claim.Id</td>
+                    <td>@claim.LecturerId</td>
+                    <td>@claim.TotalPayment</td>
+                    <td>@claim.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit">Process All Claims</button>
+</form>
+
+<td>
+    @if (!string.IsNullOrEmpty(claim.PaymentSummary))
+    {
+        <span>@claim.PaymentSummary</span>
+    }
+</td>
+

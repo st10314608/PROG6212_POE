@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Claim>
+
+<h2>Claim List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer ID</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Total Payment</th>
+            <th>Submission Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Id</td>
+                <td>@claim.LecturerId</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate</td>
+                <td>@claim.TotalPayment</td>
+                <td>@claim.SubmissionDate</td>
+                <td>@claim.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

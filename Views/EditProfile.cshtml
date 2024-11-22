@@ -1,0 +1,27 @@
+﻿@model Lecturer
+
+<h2>Edit Profile</h2>
+
+<form asp-action="EditProfile" method="post">
+    <div>
+        <label>Name:</label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input asp-for="Email" disabled />
+    </div>
+    <div>
+        <label>Phone Number:</label>
+        <input asp-for="PhoneNumber" />
+    </div>
+    <div>
+        <label>Address:</label>
+        <input asp-for="Address" />
+    </div>
+    <div>
+        <label>Date of Birth:</label>
+        <input asp-for="DateOfBirth" type="date" />
+    </div>
+    <button type="submit">Save</button>
+</form>

@@ -1,0 +1,32 @@
+﻿@page
+@model ManageLecturersModel
+
+<h2>Manage Lecturers</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lecturer in Model.Lecturers)
+        {
+            <tr>
+                <td>@lecturer.Id</td>
+                <td>
+                    <input type="text" name="name" value="@lecturer.Name" />
+                </td>
+                <td>
+                    <input type="text" name="phoneNumber" value="@lecturer.PhoneNumber" />
+                </td>
+                <td>
+                    <button type="submit" asp-page-handler="Edit" asp-route-id="@lecturer.Id">Save</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

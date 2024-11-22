@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Lecturer>
+
+<h2>Manage Lecturers</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Lecturer ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lecturer in Model)
+        {
+            <tr>
+                <td>@lecturer.LecturerId</td>
+                <td>@lecturer.Name</td>
+                <td>@lecturer.Email</td>
+                <td>@lecturer.Department</td>
+                <td>
+                    <a asp-action="EditLecturer" asp-route-id="@lecturer.LecturerId">Edit</a>
+                    <form asp-action="DeleteLecturer" method="post" style="display:inline;">
+                        <input type="hidden" name="LecturerId" value="@lecturer.LecturerId" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="AddLecturer">Add Lecturer</a>
