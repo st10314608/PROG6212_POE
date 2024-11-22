@@ -11,5 +11,5 @@ public async Task<IActionResult> ManageLecturer(Lecturer model)
     }
 
     // Save logic 
-    
+     
 }
